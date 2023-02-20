@@ -1,23 +1,7 @@
-// menu hamburguesa 
-const header = document.querySelector("header");
-
-let menu = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-
-menu.onclick = () => {
-
-    menu.classList.toggle('bx-x');
-    navbar.classList.toggle('open');
-};
-
-window.onscroll = () => {
-    menu.classList.remove('bx-x');
-    navbar.classList.remove('open');
-};
-
 
 
 //VARIABLES PARA EL CARRITO
+const btnComprarTodo = document.querySelector('#comprar-todo');
 const carrito = document.querySelector("#carrito")
 const conetenedorCarrito = document.querySelector("#lista-carrito tbody")
 const vaciarCarrito = document.querySelector("#vaciar-carrito")
@@ -31,6 +15,14 @@ function cargarEventListeners() {
 
     //Eliminar curso del carrito
     carrito.addEventListener("click", eliminarCurso)
+
+
+
+    //Muestra los cursos del carrito 
+    document.addEventListener("DOMContentLoaded", () => {
+        articulosCarrito = JSON.parse(localStorage.getItem("carrito")) || []
+        carritoHTML()
+    })
 
     //Vaciar el carrito
     vaciarCarrito.addEventListener("click", (event) => {
@@ -129,7 +121,21 @@ function carritoHTML() {
         //Agrega el HTML del carrito en el body
         conetenedorCarrito.appendChild(row)
     })
+
+
+
+
+
+
+    //Agrega el carrito al storage
+    sincronizarCarrito()
 }
+
+function sincronizarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(articulosCarrito))
+
+}
+
 
 //ELIMINA LOS CURSOS DEL TBODY
 function limpiarHTML() {
@@ -140,4 +146,27 @@ function limpiarHTML() {
     }
 }
 
+
+function comprarTodo() {
+    // Muestra el mensaje de agradecimiento
+    Swal.fire({
+        title: `Muchas Gracias Por su compra`,
+        icon: 'success',
+        footer: 'CODERHOUSE'
+    })
+
+    // Elimina los elementos del carrito
+    articulosCarrito = [];
+    limpiarHTML();
+}
+
+btnComprarTodo.addEventListener('click', comprarTodo);
+
+// Agrega elementos al arreglo de carrito
+articulosCarrito = [...articulosCarrito, infoCurso];
+
+// Habilita el botón de compra
+comprarBtn.disabled = false;
+
+carritoHTML();
 

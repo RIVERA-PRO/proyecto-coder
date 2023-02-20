@@ -116,7 +116,18 @@ tbody{
    
 }
 
+#comprar-todo{
+    display: inline-block;
+	padding: 10px 10px;
+	font-weight: 700;
+	background-color: #eaff6a;
+	color: #fff;
+	border-radius: 5px;
+	transition: all .40s ease;
+	font-size: 13px;
+	color: #000;
 
+}
 
 .button{
 	display: inline-block;
@@ -540,6 +551,9 @@ video{
     color: #ffffffb2;
     font-size: 13px;
 }
+.enlaces a:hover{
+    color: #eaff6a;
+}
 .enl{
     display: flex;
     flex-direction: column;
@@ -554,7 +568,8 @@ form{
 form input{
     background-color: #eaff6a;
     border-radius: 6px;
-    padding: 6px;
+    padding: 5px 10px;
+    border: none;
 }
 
 
@@ -563,6 +578,7 @@ form input{
     border-radius: 9px;
     height: 5vh;
     width:100%;
+    color: #eaff6a;
 }
 
 
@@ -605,6 +621,13 @@ footer h4{
     }
 	#menu-icon{
 		display: block;
+        color: #ebff6a98;
+}
+.submenu img{
+    width: 30px;
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 100px;
+    padding: 2px;
 }
 .navbar{
     position: absolute;
@@ -689,6 +712,22 @@ footer h4{
     .expertos p{
         padding: 0px 13%;
     }
+    #vaciar-carrito{
+font-size: 10px;
+    }
+    #comprar-todo{
+        font-size: 10px;
+        border: none;
+    }
+    tbody{
+        font-size: 10px;
+        font-weight: 600;
+        color: #fff;
+       
+    }
+    header {
+        padding: 14px 10%;
+    }
 }
 
 
@@ -701,7 +740,7 @@ footer h4{
 		z-index: 1;
 		padding: 20px ;
 		min-height: 400px;
-		min-width: 300px;
+		min-width: 200px;
 	}
 
     th{
@@ -710,7 +749,7 @@ footer h4{
     }
 
     tbody{
-        font-size: 12px;
+        font-size: 10px;
     }
     
 
